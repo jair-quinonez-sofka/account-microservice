@@ -1,0 +1,21 @@
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.1.0'
+
+
+
+
+    implementation 'org.springframework.boot:spring-boot-starter-amqp'
+    runtimeOnly 'com.mysql:mysql-connector-j'
+
+    implementation project(':usecases')
+    implementation project(':web')
+    implementation project(':jpa-repository')
+    implementation project(":rabbit-properties")
+
+    implementation project(':rabbit-listener-bus')
+
+
+
+}
