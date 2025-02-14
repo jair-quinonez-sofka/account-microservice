@@ -14,6 +14,10 @@ public class CreateCustomerUseCase {
     }
 
     public Customer apply(Customer customer) {
+        Customer customerFound = repository.findCustomerByIdentificationNumber(customer.getIdentification());
+        if (customerFound != null) {
+            throw new RuntimeException("Customer with identification number " + customer.getIdentification() + " already exists");
+        }
         customer.setPassword(PasswordUtils.encryptPassword(customer.getPassword()));
         return repository.save(customer);
     }

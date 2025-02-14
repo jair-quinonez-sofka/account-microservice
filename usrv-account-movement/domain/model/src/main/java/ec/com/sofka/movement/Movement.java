@@ -1,21 +1,26 @@
 package ec.com.sofka.movement;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 public class Movement {
 
     private String id;
-    private String date;
+    private LocalDateTime date;
     private String movementType;
     private BigDecimal amount;
     private BigDecimal balance;
+    private BigDecimal initialBalance;
+    private String accountNumber;
 
-    public Movement(String id, String date, String movementType, BigDecimal amount, BigDecimal balance) {
+    public Movement(String id, LocalDateTime date, String movementType, BigDecimal amount, BigDecimal balance, BigDecimal initialBalance, String accountNumber) {
         this.id = id;
         this.date = date;
         this.movementType = movementType;
         this.amount = amount;
         this.balance = balance;
+        this.initialBalance = initialBalance;
+        this.accountNumber = accountNumber;
     }
 
     public String getId() {
@@ -26,11 +31,11 @@ public class Movement {
         this.id = id;
     }
 
-    public String getDate() {
+    public LocalDateTime getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(LocalDateTime date) {
         this.date = date;
     }
 
@@ -56,5 +61,21 @@ public class Movement {
 
     public void setBalance(BigDecimal balance) {
         this.balance = balance;
+    }
+
+    public String getAccountNumber() {
+        return accountNumber;
+    }
+
+    public void setAccountNumber(String accountNumber) {
+        this.accountNumber = accountNumber;
+    }
+
+    public BigDecimal getInitialBalance() {
+        return initialBalance;
+    }
+
+    public void setInitialBalance(BigDecimal initialBalance) {
+        this.initialBalance = initialBalance;
     }
 }

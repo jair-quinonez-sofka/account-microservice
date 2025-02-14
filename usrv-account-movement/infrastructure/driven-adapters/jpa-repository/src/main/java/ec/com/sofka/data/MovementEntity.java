@@ -3,6 +3,8 @@ package ec.com.sofka.data;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
 @Entity
 @Table(name = "movement")
 public class MovementEntity {
@@ -13,31 +15,48 @@ public class MovementEntity {
     @Column(name = "id")
     private String id;
     @Column(name = "date")
-    private String date;
+    private LocalDateTime date;
     @Column(name = "movement_type")
     private String movementType;
     @Column(name = "amount")
     private BigDecimal amount;
     @Column(name = "balance")
     private BigDecimal balance;
+    @Column(name = "initial_balance")
+    private BigDecimal initialBalance;
+    @Column(name = "account_number")
+    private String accountNumber;
 
-    public MovementEntity(String id, String date, String movementType, BigDecimal amount, BigDecimal balance) {
+
+    @PrePersist
+    public void prePersist() {
+        if (this.date == null) {
+            this.date = LocalDateTime.now();
+        }
+    }
+
+    public MovementEntity(String id, String movementType, BigDecimal amount, BigDecimal balance, BigDecimal initialBalance, String accountNumber) {
         this.id = id;
-        this.date = date;
         this.movementType = movementType;
         this.amount = amount;
         this.balance = balance;
+        this.initialBalance = initialBalance;
+        this.accountNumber = accountNumber;
     }
 
     public MovementEntity() {
 
     }
 
+    public String getAccountNumber() {
+        return accountNumber;
+    }
+
     public String getId() {
         return id;
     }
 
-    public String getDate() {
+    public LocalDateTime getDate() {
         return date;
     }
 
@@ -51,5 +70,9 @@ public class MovementEntity {
 
     public BigDecimal getBalance() {
         return balance;
+    }
+
+    public BigDecimal getInitialBalance() {
+        return initialBalance;
     }
 }

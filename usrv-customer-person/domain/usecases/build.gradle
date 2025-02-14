@@ -1,7 +1,16 @@
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
 
+    testImplementation 'org.mockito:mockito-core'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.0'
+    testImplementation 'io.projectreactor:reactor-test'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
 
     implementation project(':model')
     implementation project(':helpers')
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
 }

@@ -3,6 +3,7 @@ package ec.com.sofka.controller;
 
 import ec.com.sofka.data.AccountDTO;
 import ec.com.sofka.data.MovementDTO;
+import ec.com.sofka.data.MovementResponseDTO;
 import ec.com.sofka.handlers.MovementHandler;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
@@ -22,7 +23,7 @@ public class MovementController {
     }
 
     @PostMapping("/create")
-    public ResponseEntity<MovementDTO> create(@Valid @RequestBody MovementDTO movementDTO) {
+    public ResponseEntity<MovementResponseDTO> create(@Valid @RequestBody MovementDTO movementDTO) {
         return ResponseEntity.ok(movementHandler.createMovement(movementDTO));
     }
 }

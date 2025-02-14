@@ -1,7 +1,9 @@
 package ec.com.sofka.gateway;
 
+import ec.com.sofka.data.CustomerInfoRequestRecord;
+
 public interface IBusMessage {
-    String sendMessage(String message);
+    Object sendMessage(CustomerInfoRequestRecord request);
 
 
 }

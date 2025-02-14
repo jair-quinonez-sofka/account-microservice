@@ -19,6 +19,8 @@ public class RabbitEnvProperties {
     private String customerRoutingKey;
 
 
+
+
     public String getCustomerExchange() {
         return customerExchange;
     }

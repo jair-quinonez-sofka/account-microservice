@@ -2,6 +2,7 @@ package ec.com.sofka.handlers;
 
 
 import ec.com.sofka.data.MovementDTO;
+import ec.com.sofka.data.MovementResponseDTO;
 import ec.com.sofka.mapper.MovementDTOMapper;
 import ec.com.sofka.usecases.movement.CreateMovementUseCase;
 import org.springframework.stereotype.Component;
@@ -15,7 +16,7 @@ public class MovementHandler {
         this.createMovementUseCase = createMovementUseCase;
     }
 
-    public MovementDTO  createMovement(MovementDTO movementDTO) {
+    public MovementResponseDTO createMovement(MovementDTO movementDTO) {
         return MovementDTOMapper.ToMovementDTO(
                 createMovementUseCase.apply(
                         MovementDTOMapper.toMovement(movementDTO)

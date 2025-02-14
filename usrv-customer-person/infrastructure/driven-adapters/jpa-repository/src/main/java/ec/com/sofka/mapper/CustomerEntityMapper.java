@@ -5,6 +5,7 @@ import ec.com.sofka.data.CustomerEntity;
 
 public class CustomerEntityMapper {
     public static CustomerEntity toCustomerEntity(Customer customer) {
+        if (customer == null)  return null;
         return new CustomerEntity(
                 customer.getName(),
                 customer.getGender(),

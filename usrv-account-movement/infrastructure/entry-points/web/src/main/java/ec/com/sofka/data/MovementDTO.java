@@ -5,35 +5,23 @@ import jakarta.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
 public class MovementDTO {
-    @NotNull(message = "date cannot be null")
-    private String date;
-    @NotNull(message = "movementType cannot be null")
-    private String movementType;
+    @NotNull(message = "accountNumber cannot be null")
+    private final String accountNumber;
     @NotNull(message = "amount cannot be null")
-    private BigDecimal amount;
-    @NotNull(message = "balance cannot be null")
-    private BigDecimal balance;
+    private final BigDecimal amount;
 
-    public MovementDTO(String date, String movementType, BigDecimal amount, BigDecimal balance) {
-        this.date = date;
-        this.movementType = movementType;
+
+    public MovementDTO(String accountNumber,BigDecimal amount) {
+        this.accountNumber = accountNumber;
         this.amount = amount;
-        this.balance = balance;
     }
 
-    public String getDate() {
-        return date;
+    public String getAccountNumber() {
+        return accountNumber;
     }
 
-    public String getMovementType() {
-        return movementType;
-    }
 
     public BigDecimal getAmount() {
         return amount;
-    }
-
-    public BigDecimal getBalance() {
-        return balance;
     }
 }

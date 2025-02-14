@@ -8,4 +8,7 @@ dependencies {
     implementation project(':usecases')
     implementation project(':jpa-repository')
     implementation project(':model')
+
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
 }

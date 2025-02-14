@@ -7,10 +7,11 @@ public class MovementEntityMapper {
     public static MovementEntity toMovementEntity(Movement movement) {
         return new MovementEntity(
                 movement.getId(),
-                movement.getDate(),
                 movement.getMovementType(),
                 movement.getAmount(),
-                movement.getBalance()
+                movement.getBalance(),
+                movement.getInitialBalance(),
+                movement.getAccountNumber()
         );
     }
 
@@ -20,7 +21,9 @@ public class MovementEntityMapper {
                 movementEntity.getDate(),
                 movementEntity.getMovementType(),
                 movementEntity.getAmount(),
-                movementEntity.getBalance()
+                movementEntity.getBalance(),
+                movementEntity.getInitialBalance(),
+                movementEntity.getAccountNumber()
         );
     }
 }
